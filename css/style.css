@@ -4,11 +4,6 @@
 		background: #F2F2F2;
 	}
 
-	@font-face{
-		font-family: 'Open_Sans_Light', sans-serif;
-		src: url("OpenSans-Light.ttf"),
-		url("OpenSans-Light.ttf"); /* IE */
-	}
     ul{
         padding: 0;
         list-style: none;
@@ -35,13 +30,14 @@
     ul li a.hoveritem:hover{
         color: #fff;
         background: #939393;
+        
     }
     ul li a:hover{
         color: #fff;
         background: #939393;
     }
 	table a:hover{
-        color: #000;
+        color: #fff;
 		background: #4CA1FF;
     }
 	#nohover .pdf a:hover{
@@ -55,6 +51,9 @@
         z-index: 999;
         left: 0;
 		text-align: left;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+		border-bottom: 1px solid black;
     }
     ul li:hover ul.dropdown{
         display: block;	/* Display the dropdown */
@@ -73,7 +72,7 @@
 		margin-bottom:-15px;
 		margin-left: auto;
 		margin-right: auto;
-		width: 1090px;
+		width: 950px;
 	}
 	p.customfont {
 		font-family: 'Open Sans', sans-serif;
@@ -87,13 +86,16 @@
 		border-radius: 13px;
 		border: 2px solid #DEDEDE;
 		background: #ffffff;
-		padding: 20px; 
-		width: 1050px;
+		margin: 20px;
+		width: 850px;
 		height: auto;
 		min-height: 800px;
 		margin-left: auto;
 		margin-right: auto;
-		
+		font-family: sans-serif;
+		padding-top:40px; 
+		padding-left:40px; 
+		padding-right: 60px;
 	}
 	
 	p.textinside{
@@ -127,7 +129,7 @@
 	
 	.verticalLine {
 		border-right: 2px solid #DEDEDE;
-		height: 800px;
+		height: auto;
 		position: absolute;
 		margin-top: -20px;
 		padding-left: -20px;
@@ -137,22 +139,25 @@
 		border: 2px solid #DEDEDE;
 		background: #ffffff;
 		padding: 20px; 
-		width: 1050px;
+		width: 910px;
 		height: auto;
 		min-height: 800px;
 		margin-left: auto;
 		margin-right: auto;
+		margin-bottom: 20px;
+		
 	}
+	
 	#left_col {
-	   float:left;
-	   width:270px;
-	   font-family: sans-serif;
+		float:left;
+		width:250px;
 	}
 	#right_col {
-	   float:right;
-	   
-	   width:770px;
+		float:right;
+		width:640px;
+		
 	}
+	
 	
 	.heading{
 		background-color: black;
@@ -163,6 +168,7 @@
 		width: 100%;
 		padding-top: 5px;
 		padding-bottom: 25px;
+		min-width:1022px
 
 	}
 	
@@ -175,6 +181,16 @@
 		top: 120px;
 		display: block;
 		margin-top: 3px;
+	}
+	
+	td.footer {
+		min-width: 130px;
+		text-align: center;
+	}
+	td.footerid {
+		min-width: 130px;
+		text-align: center;
+		font-size: 14px;
 	}
 	
 	#menu {
