@@ -35,14 +35,17 @@
     ul li a.hoveritem:hover{
         color: #fff;
         background: #939393;
+        
     }
     ul li a:hover{
         color: #fff;
         background: #939393;
     }
 	table a:hover{
-        color: #000;
+        color: #fff;
 		background: #4CA1FF;
+		padding-bottom: 14px;
+        padding-top: 14px;
     }
 	#nohover .pdf a:hover{
         background-color: transparent;
