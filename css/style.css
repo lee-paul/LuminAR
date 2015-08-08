@@ -78,11 +78,11 @@
 		font-weight: 300;
 		margin-top: -5px;
 		margin-left: 10px;
-		font-size: 42px;
+		font-size: 38px;
 	}
 	
 	#pagebody {
-		border-radius: 10px;
+		border-radius: 8px;
 		border: 1px solid #DEDEDE;
 		background: #ffffff;
 		margin: 20px;
@@ -98,14 +98,14 @@
 	}
 	
 	p.textinside{
-		font-family: sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		font-size: 14px;
 		margin-left: 10px;
 		margin-top: -35px;
 	}
 	
 	table.textinside{
-		font-family: sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		font-size: 14px;
 		margin-left: 10px;
 		margin-top: -35px;
@@ -133,7 +133,7 @@
 		margin-top: -20px;
 	}
 	#wrap {
-		border-radius: 10px;
+		border-radius: 8px;
 		border: 1px solid #DEDEDE;
 		background: #ffffff;
 		padding: 20px; 
@@ -148,13 +148,13 @@
 	
 	#left_col {
 		float:left;
-		width:200px;	
+		width:220px;	
 		border-collapse: separate;
 	}
 	
 	#right_col {
 		float:right;
-		width:700px;
+		width:690px;
 		
 	}
 	
@@ -163,10 +163,10 @@
 		background-color: black;
 		top: 0px;
 		left: 0px;
-		height: 75px;
+		height: 65px;
 		position: absolute;
 		width: 100%;
-		padding-top: 5px;
+		padding-top: -5px;
 		padding-bottom: 25px;
 		min-width:1080px
 
@@ -180,7 +180,7 @@
 	.colors{
 		top: 120px;
 		display: block;
-		margin-top: 3px;
+		margin-top: -1px;
 	}
 	
 	td.footer {
