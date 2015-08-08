@@ -27,7 +27,7 @@
         color: #333;
         text-decoration: none;
     }
-    ul li a.hoveritem:hover{			/* Menu items hover*/
+    ul li a.menuhover:hover{			/* Menu items hover*/
         color: #fff;
         background: #939393;
         
