@@ -36,15 +36,30 @@
     ul li:hover a{					/* Menu items hover*/
         color: #000;
         background: #fff;
-        
+        -webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		-ms-transition: all 0.2s;
+		-o-transition: all 0.2s;
+		transition: all 0.2s;
     }
+    
     ul li ul li a:hover{			/* Dropdown(any listitem) hover*/
         color: #000;
         background: #F2F2F2;
+        -webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		-ms-transition: all 0.2s;
+		-o-transition: all 0.2s;
+		transition: all 0.2s;
     }
 	table a:hover{					/*Left column hover */
         color: #4CA1FF;
-    }
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		-ms-transition: all 0.2s;
+		-o-transition: all 0.2s;
+		transition: all 0.2s;
+	}
 
     ul li ul.dropdown{
         min-width: 125px; /* Set width of the dropdown */
