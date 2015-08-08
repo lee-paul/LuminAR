@@ -27,9 +27,14 @@
         color: #333;
         text-decoration: none;
     }
-    ul li a:hover{			/* Hover for the menu items & dropdown */
+    ul li a.menuhover:hover{
         color: #fff;
         background: #939393;
+        
+    }
+    ul li a:hover{			/* Hover for the dropdown */
+        color: #000;
+        background: #fff;
     }
 	table a:hover{			/* Hover for the left column */
         color: #4CA1FF;
