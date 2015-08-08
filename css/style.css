@@ -23,7 +23,7 @@
     }
     table a{
         display: block;
-        padding: 8px 25px;
+        padding: 8px 10px;
         color: #333;
         text-decoration: none;
     }
@@ -131,7 +131,6 @@
 		height: auto;
 		position: absolute;
 		margin-top: -20px;
-		padding-left: -20px;
 	}
 	#wrap {
 		border-radius: 10px;
@@ -149,11 +148,13 @@
 	
 	#left_col {
 		float:left;
-		width:230px;
+		width:200px;	
+		border-collapse: separate;
 	}
+	
 	#right_col {
 		float:right;
-		width:640px;
+		width:700px;
 		
 	}
 	
