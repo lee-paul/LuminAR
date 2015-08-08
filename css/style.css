@@ -91,7 +91,8 @@
 		min-height: 800px;
 		margin-left: auto;
 		margin-right: auto;
-		font-family: sans-serif;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 14px;
 		padding-top:40px; 
 		padding-left:40px; 
 		padding-right: 60px;
