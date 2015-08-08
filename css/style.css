@@ -47,6 +47,7 @@
         background: #ffffff;
         display: none;
         position: absolute;
+		padding-right:-15px;
         z-index: 999;
         left: 0;
 		text-align: left;
@@ -110,6 +111,26 @@
 		font-size: 14px;
 		margin-left: 10px;
 		margin-top: -35px;
+	}
+	.logobottom{
+		min-width: 130px;
+		text-align: center;
+		font-size: 14px;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+		padding: 0px 0px 0px 0px;
+		color: white;
+	}
+	
+	.logotop{
+		min-width: 130px;
+		text-align: center;
+		font-size: 30px;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+		padding: 0px 0px 0px 0px;
+		color: white;
+		line-height: 75%;
 	}
 	
 	
