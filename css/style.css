@@ -18,7 +18,13 @@
     ul li a{						/*Menu & drop down items*/
         display: block;
         padding: 8px 25px;
-        color: #999;
+        color: #000;
+        text-decoration: none;
+    }
+    ul li a.menuhover{						/*Menu & drop down items*/
+        display: block;
+        padding: 8px 25px;
+        color: #fff;
         text-decoration: none;
     }
     table a{
@@ -28,8 +34,8 @@
         text-decoration: none;
     }
     ul li a.menuhover:hover{			/* Menu items hover*/
-        color: #fff;
-        background: #939393;
+        color: #000;
+        background: #fff;
         
     }
     ul li a:hover{					/* Dropdown(any listitem) hover*/
