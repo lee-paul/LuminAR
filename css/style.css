@@ -87,7 +87,7 @@
 		border: 1px solid #DEDEDE;
 		background: #ffffff;
 		margin: 20px;
-		width: 850px;
+		width: 860px;
 		height: auto;
 		min-height: 800px;
 		margin-left: auto;
@@ -136,10 +136,10 @@
 	}
 	#wrap {
 		border-radius: 10px;
-		border: 2px solid #DEDEDE;
+		border: 1px solid #DEDEDE;
 		background: #ffffff;
 		padding: 20px; 
-		width: 910px;
+		width: 920px;
 		height: auto;
 		min-height: 800px;
 		margin-left: auto;
