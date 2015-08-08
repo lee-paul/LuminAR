@@ -33,12 +33,12 @@
         color: #333;
         text-decoration: none;
     }
-    ul li a.menuhover:hover{			/* Menu items hover*/
+    ul li:hover a{					/* Menu items hover*/
         color: #000;
         background: #fff;
         
     }
-    ul li a:hover{					/* Dropdown(any listitem) hover*/
+    ul li ul li a:hover{			/* Dropdown(any listitem) hover*/
         color: #000;
         background: #F2F2F2;
     }
