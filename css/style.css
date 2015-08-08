@@ -39,8 +39,8 @@
         
     }
     ul li a:hover{					/* Dropdown(any listitem) hover*/
-        color: #fff;
-        background: #939393;
+        color: #000;
+        background: #F2F2F2;
     }
 	table a:hover{					/*Left column hover */
         color: #4CA1FF;
