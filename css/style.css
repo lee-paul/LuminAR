@@ -15,10 +15,10 @@
         line-height: 21px;
         
     }
-    ul li a{
+    ul li a{						/*Menu & drop down items*/
         display: block;
         padding: 8px 25px;
-        color: #333;
+        color: #999;
         text-decoration: none;
     }
     table a{
@@ -27,18 +27,19 @@
         color: #333;
         text-decoration: none;
     }
-    ul li a.menuhover:hover{
+    ul li a.hoveritem:hover{			/* Menu items hover*/
         color: #fff;
         background: #939393;
         
     }
-    ul li a:hover{			/* Hover for the dropdown */
-        color: #000;
-        background: #fff;
+    ul li a:hover{					/* Dropdown(any listitem) hover*/
+        color: #fff;
+        background: #939393;
     }
-	table a:hover{			/* Hover for the left column */
+	table a:hover{					/*Left column hover */
         color: #4CA1FF;
     }
+
     ul li ul.dropdown{
         min-width: 125px; /* Set width of the dropdown */
         background: #ffffff;
@@ -52,10 +53,10 @@
 		border-right: 1px solid #CDCDCD;
 		border-bottom: 1px solid #CDCDCD;
     }
-    ul li:hover ul.dropdown{		/* This hover shows the dropdown box */
+    ul li:hover ul.dropdown{
         display: block;	/* Display the dropdown */
     }
-    ul li ul.dropdown li{			/* This shows the dropbown box items */
+    ul li ul.dropdown li{
         display: block;
     }
 	div {
