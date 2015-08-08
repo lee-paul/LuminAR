@@ -102,15 +102,17 @@
 	p.textinside{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 14px;
-		margin-left: 10px;
+		margin-left: 15px;
 		margin-top: -35px;
+		margin-right: 15px;
 	}
 	
 	table.textinside{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 14px;
-		margin-left: 10px;
+		margin-left: 15px;
 		margin-top: -35px;
+		margin-right: 15px;
 	}
 	.logobottom{
 		min-width: 130px;
