@@ -7,9 +7,12 @@
 <script>
 	$(document).ready(function(){
 
-	var divHeight = $('#wrap').height(); 
+	var contentHeight = $('#right_col').height();
+		$('#wrap').css('height', contentHeight+'px');
+
+	var divHeight = $('#wrap').height();  
 	divHeight = divHeight + 40;
-    	$('.verticalLine').css('min-height', divHeight+'px');
+    	$('.verticalLine').css('height', divHeight+'px');
 }); 
 	
 </script>
@@ -131,7 +134,7 @@
 <div class ="pageheading" >
 	<p>Planning & Control</p>
 	</div>
-	<div id="wrap" style="min-height:2500px;">
+	<div id="wrap">
 		<div id="left_col" class="verticalLine">
 			<table style="border-spacing: 0px; margin-top:20px; margin-left:-20px">
 				<col width="300";>

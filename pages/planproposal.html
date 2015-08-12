@@ -6,10 +6,15 @@
 <script src="../css/jquery-1.11.3.min.js"></script>
 <script>
 	$(document).ready(function(){
+		
+	var contentHeight = $('#right_col').height();
+		$('#wrap').css('min-height', contentHeight+'px');
 
-	var divHeight = $('#wrap').height(); 
+	var divHeight = $('#wrap').height();  
 	divHeight = divHeight + 40;
     	$('.verticalLine').css('min-height', divHeight+'px');
+    	
+    	
 }); 
 	
 </script>

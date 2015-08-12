@@ -7,9 +7,12 @@
 <script>
 	$(document).ready(function(){
 
-	var divHeight = $('#wrap').height(); 
+	var contentHeight = $('#right_col').height();
+		$('#wrap').css('height', contentHeight+'px');
+
+	var divHeight = $('#wrap').height();  
 	divHeight = divHeight + 0;
-    	$('.verticalLine').css('min-height', divHeight+'px');
+    	$('.verticalLine').css('height', divHeight+'px');
 }); 
 	
 </script>
