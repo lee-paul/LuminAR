@@ -13,14 +13,18 @@
         display: inline-block;
         position: relative;
         line-height: 21px;
-        
-        
     }
     ul li a{						/*Menu & drop down items*/
         display: block;
         padding: 8px 25px;
         color: #000;
         text-decoration: none;
+        
+        -webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;    /* Leave hover transition */
+		-ms-transition: all 0.3s;
+		-o-transition: all 0.3s;
+		transition: all 0.3s;
        
     }
     ul li a.menuhover{						/*Menu & drop down items*/
@@ -39,8 +43,11 @@
     ul li:hover a{					/* Menu items hover*/
         color: #000;
         background: #fff;
-        transition: all 0.5s ease 0s, visibility 0s linear 0.5s;
-        transition-delay: 0s;
+        -webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		-ms-transition: all 0.3s;
+		-o-transition: all 0.3s;
+		transition: all 0.3s;
     }
     
     ul li ul li a:hover{			/* Dropdown(any listitem) hover*/
@@ -53,7 +60,7 @@
 		transition: all 0.3s;
     }
 	table a:hover{					/*Left column hover */
-        color: #4CA1FF;
+        color: #4CA1FF;				/*Also effects the top menu bar?? */
 		-webkit-transition: all 0.3s;
 		-moz-transition: all 0.3s;
 		-ms-transition: all 0.3s;
@@ -67,7 +74,6 @@
         visibility: hidden;
         opacity: 0;
         display:block;
-        transition: all 0.5s ease 0s, visibility 0s linear 0.5s;
         position: absolute;
 		padding-right:-15px;
         z-index: 999;
@@ -77,43 +83,18 @@
 		border-right: 1px solid #CDCDCD;
 		border-bottom: 1px solid #CDCDCD;
 		
+		-webkit-transition: all 0.344s;
+		-moz-transition: all 0.344s;
+		-ms-transition: all 0.344s;
+		-o-transition: all 0.344s;
+		transition: all 0.344s;
     }
     
-    ul li ul.dropdownlast{
-        min-width: 125px; /* Set width of the dropdown */
-        background: #ffffff;
-        visibility: hidden;
-        opacity: 0;
-        display:block;
-        transition: all 0.5s ease 0s, visibility 0s linear 0.5s;
-        position: absolute;
-		padding-right:-15px;
-        z-index: 999;
-        right: 0;
-		text-align: left;
-		border-left: 1px solid #CDCDCD;
-		border-right: 1px solid #CDCDCD;
-		border-bottom: 1px solid #CDCDCD;
-		white-space:nowrap;
-		
-    }
     ul li:hover > ul.dropdown{
-        visibility: visible;	/* Display the dropdown */
-       opacity: 1;
-       transition-delay: 0s;
-       
+       	visibility: visible;	/* Display the dropdown */
+       	opacity: 1;
     }
-    
-    ul li:hover > ul.dropdownlast{
-        visibility: visible;	/* Display the dropdown */
-       opacity: 1;
-       transition-delay: 0s;
-       
-    }
-    ul li ul.dropdownlast li{
-        display: block;
 
-    }
     ul li ul.dropdown li{
         display: block;
 
@@ -139,7 +120,6 @@
 		margin-left: 10px;
 		font-size: 38px;
 	}
-	
 	
 	#pagebody {
 		border-radius: 6px;
