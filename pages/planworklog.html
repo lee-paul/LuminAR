@@ -5,7 +5,7 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 <script src="../css/jquery-1.11.3.min.js"></script>
 <script>
-	$(document).ready(function(){
+	$(window).load(function(){
 
 	var contentHeight = $('#right_col').height();
 		$('#wrap').css('min-height', contentHeight+'px');
@@ -171,9 +171,18 @@
 				</tr>
 			</table>
 			
-			<img width=500px; src="../images/piechart.png">
-			<img width=710px; src="../images/hoursworked.png">
-			
+			<table>
+				<tr>
+					<td>
+						<img width=500px alt="Pie Chart, showing memeber hours" src="../images/piechart.png">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img width=705px alt="Charts showing individual member hours" src="../images/hoursworked.png">
+					</td>
+				</tr>
+			</table>
 			</p>
 		</div>
 	</div>
