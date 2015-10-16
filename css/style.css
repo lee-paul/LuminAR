@@ -142,9 +142,9 @@
 	p.textinside{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 14px;
-		margin-left: 15px;
+		margin-left: 20px;
 		margin-top: -35px;
-		margin-right: 15px;
+		margin-right: 20px;
 		line-height: 170%;
 		
 	}
@@ -152,9 +152,8 @@
 	table.tabletext{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 14px;
-		margin-top: -30px;
-		padding-top: -10px;
-		
+		margin-left: 20px;
+		margin-right: 20px;
 	}
 	
 	.logobottom{
@@ -270,6 +269,7 @@
 	}
 	
 	tr.border_bottom td {
+		height: 10px;
 		border-bottom-width: thin;
 		border-bottom-style: solid;
 		border-bottom-color: #d3d3d3;
