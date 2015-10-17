@@ -119,6 +119,7 @@
 		margin-top: -5px;
 		margin-left: 10px;
 		font-size: 38px;
+		margin-bottom: 45px;
 	}
 	
 	#pagebody {
@@ -146,8 +147,17 @@
 		margin-top: -35px;
 		margin-right: 20px;
 		line-height: 170%;
-		
+		margin-bottom: 25px;
 	}
+	
+	p.bottomtext{
+		font-family: 'Open Sans', sans-serif;
+		margin-top: -5px;
+		margin-left: 20px;
+		font-size: 16px;
+		margin-bottom: 45px;
+	}
+	
 	
 	table.tabletext{
 		font-family: 'Open Sans', sans-serif;
