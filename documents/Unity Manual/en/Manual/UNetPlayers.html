@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Player Objects</title>
+<meta name="description" content="Develop once, publish everywhere! Unity is the ultimate tool for video game development, architectural visualizations, and interactive media installations - publish to the web, Windows, OS X, Wii, Xbox 360, and iPhone with many more platforms to come.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1439907317"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1439907317"></script><script type="text/javascript" src="docdata/toc.js?ts=1439907317"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1439907317"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1439907317">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content"><div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetPlayers.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetPlayers.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetPlayers.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetPlayers.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetPlayers.html">Русский</a></li>
+</ul></div>
+</div></div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManualRestructured.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li>Player Objects</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetActions.html"></a></span><div class="tip">Remote Actions</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetVisibility.html"></a></span><div class="tip">Object Visibility</div>
+</div>
+</div></div>
+<h1>Player Objects</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>In the HLAPI of the network system players are special kinds of objects. They represent the player on the server and so have the ability to run commands (which are secure client-to-server remote procedure calls) from the player’s client. In this server authoritative system, other non-player server side objects do not have the capability to receive commands directly from objects on clients. This is both for security and to reduce the complexity of working in a distributed environment. Routing all incoming commands from users through the player object ensures that these messages came from the right place, the right client, and can be handling in a central location. </p>
+
+<p>When using the NetworkManager, a player is added by default when a client connects to the server. In some situations though, adding players should be deferred until some input event happens, so this behaviour can be turned off with the AutoCreatePlayer checkbox on the NetworkManager. When a player is added, the NetworkManager will instantiate an object from the PlayerPrefab and associate it with the connection. This is actually done by the NetworkManager calling <a href="../ScriptReference/Networking.NetworkServer.AddPlayerForConnection.html">NetworkServer.AddPlayerForConnection</a>. This behaviour can be modified by overriding NetworkManager.OnServerAddPlayer. The default implementation of OnServerAddPlayer instantiates a new player instance from the PlayerPrefab and calls NetworkServer.AddPlayer to spawn the new player instance. A custom implementation of OnServerAddPlayer must also call NetworkServer.AddPlayer, but is free to perform any other initialization it requires. The example below customizes the color of a player:</p>
+
+<pre><code>class Player : NetworkBehaviour
+{
+    [SyncVar]
+    public Color color;
+}
+
+class MyManager : NetworkManager
+{
+    public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+    {
+        GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.Zero, Quaternion.Identity);
+        player.GetComponent&lt;Player&gt;().color = Color.Red;
+        NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+    }
+}
+</code></pre>
+
+<p>The function NetworkServer.AddPlayer does not have to be called from within OnServerAddPlayer. As long as the correct connection object and playerControllerId are passed in, it can be called after OnServerAddPlayer has returned. This allows asynchronous steps to happen in between, such as loading player data from a remote data source.</p>
+
+<p>The HLAPI treats players and clients as separate objects. In most cases there is a single player for each client. But, in some situations - such as when there are multiple controllers connected to a console system, they could be multiple player objects for a single connection. When there are multiple players for a connection, the playerControllerId property is used to tell them apart. This is an identifier that is scoped to the connection - so that it literally maps to the id of the controller associated with the player on that client.</p>
+
+<p>The player object passed to <a href="../ScriptReference/Networking.NetworkServer.AddPlayerForConnection.html">NetworkServer.AddPlayerForConnection</a> on the server is automatically spawned by the system, so there is no need to call <a href="../ScriptReference/Networking.NetworkServer.Spawn.html">NetworkServer.Spawn</a> for the player. Once a player is ready, the active <a href="../ScriptReference/Networking.NetworkIdentity.html">NetworkIdentity</a> objects in the scene will be spawned on the player’s client. So all networked objects in the game will be created on that client with their latest state, so they are in sync with the other participants of the game.</p>
+
+<p>The player object for a connection can be replaced by a new player object with <a href="../ScriptReference/Networking.NetworkServer.ReplacePlayerForConnection.html">NetworkServer.ReplacePlayerForConnection</a>. This can be useful to restrict the commands that can be issued by players at certain times, such as in a pre-game lobby screen.</p>
+
+<h2>Ready State</h2>
+
+<p>In addition to players, client connections also have a “ready” state. A client that is ready is sent spawned objects and state synchronization updates; a client that is not ready, is not sent these updates. When a client initially connects to a server it is not ready. While in this state, the client is able to do things that don’t require real-time interactions with the server simulation, such as load scenes, choose avatars or fill out login boxes. Once a client has all their pre-game work done, and all their assets loaded, they can call <a href="../ScriptReference/Networking.ClientScene.Ready.html">ClientScene.Ready</a> to enter the ready state. The simple example above also works, as adding a player with <a href="../ScriptReference/Networking.NetworkServer.AddPlayerForConnection.html">NetworkServer.AddPlayerForConnection</a> also puts the client into the ready state if it is not already in that state.</p>
+
+<p>Clients can send and receive network messages without being ready, which also means without having an active player. So a client at a menu or selection screen can be connected to the game and interact with it, even though they have no player object. There is a section later in this document about sending messages without using commands and RPC calls.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetActions.html"></a></span><div class="tip">Remote Actions</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetVisibility.html"></a></span><div class="tip">Object Visibility</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2015 Unity Technologies</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Learn</a><a href="http://unity3d.com/community">Community</a><a href="http://unity3d.com/asset-store">Asset Store</a><a href="https://store.unity3d.com">Buy</a><a href="http://unity3d.com/unity/download">Download</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>

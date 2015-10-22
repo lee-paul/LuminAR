@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: VR Overview</title>
+<meta name="description" content="Develop once, publish everywhere! Unity is the ultimate tool for video game development, architectural visualizations, and interactive media installations - publish to the web, Windows, OS X, Wii, Xbox 360, and iPhone with many more platforms to come.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1439907317"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1439907317"></script><script type="text/javascript" src="docdata/toc.js?ts=1439907317"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1439907317"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1439907317">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content"><div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/VROverview.html">English</a></li>
+<li><a href="/ja/current/Manual/VROverview.html">日本語</a></li>
+<li><a href="/es/current/Manual/VROverview.html">Español</a></li>
+<li><a href="/kr/current/Manual/VROverview.html">한국어</a></li>
+<li><a href="/ru/current/Manual/VROverview.html">Русский</a></li>
+</ul></div>
+</div></div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManualRestructured.html">Unity Manual</a></li>
+<li>Virtual Reality</li>
+<li>VR Overview</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityAnalytics51Upgrade.html"></a></span><div class="tip">Unity Analytics Upgrade Instructions</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="VRReference.html"></a></span><div class="tip">VR Reference</div>
+</div>
+</div></div>
+<h1>VR Overview</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity 5.1 contains built-in support for certain <a href="../ScriptReference/VR.VRDeviceType.html">VR devices</a>.</p>
+
+<h2>Overview</h2>
+
+<p>VR has traditionally been supported in Unity via external plugins. This had a few shortcomings:</p>
+
+<ul>
+<li>Each VR device has a different plugin.</li>
+<li>Plugins may conflict with eachother.</li>
+<li>Toggling between VR plugins to support multiple devices is a lot of extra work.</li>
+<li>Each release of newer VR SDKs / Runtimes can break older games.</li>
+<li>Toggling between VR and non VR mode is non trivial.</li>
+<li>Lower level engine optimizations are not possible with plugin approach of two separate cameras.</li>
+</ul>
+
+<p>Unity VR adds the ability to target VR devices from directly within Unity without the need for external plugins. It provides a base API and featureset with the goal of forward compatibility for devices and software. The provided API surface today is minimal by design, and will expand as we learn more about the needs of VR developers.</p>
+
+<h2>Enabling Unity VR Support</h2>
+
+<p>To enable VR for your game builds and the editor, set the “Virtual Reality Supported” option in <a href="class-PlayerSettings.html">Player Settings</a>.</p>
+
+<h2>What happens when VR is enabled</h2>
+
+<p>When VR is enabled in Unity, a few things happen automatically for you:</p>
+
+<h3>Automatic stereo display</h3>
+
+<ul>
+<li>It is not required to have two Cameras for stereoscopic displays. Any camera that has no render texture is automatically rendered in stereo to your device. View and projection matrices are adjusted to account for field of view and headtracking.
+
+<ul>
+<li>Optimizations automatically occur to make the both eyes less expensive.</li>
+</ul>
+</li>
+</ul>
+
+<h3>Automatically Headtracked</h3>
+
+<ul>
+<li>Head tracking and appropriate FOV is automatically applied to your camera (if your device is head mounted).
+
+<ul>
+<li>This happens by default because low latency head tracking is integral to a good VR experience.</li>
+</ul>
+</li>
+</ul>
+
+<h3>Understanding the camera</h3>
+
+<ul>
+<li>The camera transform is overridden with the head tracked pose.
+
+<ul>
+<li>If you want to move the camera, you must attach it as a child to another game object and then move the root game object.</li>
+<li>You will need to adjust scripts that directly move the camera.</li>
+<li>Think of the camera’s position and orientation as where you want your user to be looking in their neutral position.</li>
+<li>If you need to reset the neutral position, use <a href="../ScriptReference/VR.InputTracking.Recenter.html">VR.InputTracking.Recenter()</a>.</li>
+<li>You will need to adjust cameras that assume a specific field of view. Field of view is overridden by the VR Device.</li>
+<li>Your scenes need to take into account that the camera can be pointed in any direction.</li>
+<li>Depending on the VR Device, the camera can potentially move as well.
+
+<ul>
+<li>For now you must use Oculus’ SDK in order to obtain the movement volume or lock movement. This will be exposed through Unity in the future.</li>
+</ul>
+</li>
+<li>Many camera image effects don’t look right in VR. Ex. Depth of Field</li>
+</ul>
+</li>
+</ul>
+
+<h2>Editor Mode</h2>
+
+<ul>
+<li>To enable VR for your game builds and the editor, set the “Virtual Reality Supported” option in <a href="class-PlayerSettings.html">Player Settings</a>.</li>
+<li>If your VR device supports Unity Editor mode (Ex. Oculus DK2), pressing play in the editor will allow you to test directly on your device.
+
+<ul>
+<li>Please note that there is some overhead to running in the editor and you may experience lag or judder if not rendering at the appropriate frame rate.</li>
+<li>It is recommended to use “Maximize on Play” for the Game View to reduce editor rendering overhead.</li>
+<li>The Unity profiler will tell you what your performance will be like when running outside of the editor. If you are trying to optimize to get the editor running well, make sure you enable editor profiling to see the editor overhead.</li>
+</ul>
+</li>
+</ul>
+
+<h2>Standalone Builds: Choosing a VR Device</h2>
+
+<p>The option to start in VR mode is saved per computer, and defaults as VR off at the moment. This will change in the future.</p>
+
+<p>To choose a VR Device, you can start Unity or the Unity application with the following command line argument:</p>
+
+<blockquote>
+<p>-vrmode <strong>DEVICETYPE</strong>
+</p>
+</blockquote>
+
+<p>where <strong>DEVICETYPE</strong> is one of the names from the supported <a href="../ScriptReference/VR.VRDeviceType.html">VR devices list</a>. Ex.</p>
+
+<blockquote>
+<p>Game.exe <em>-vrmode oculus</em>
+</p>
+</blockquote>
+
+<p>Or, you can request a VR Device be loaded at runtime by <a href="../ScriptReference/VR.VRSettings-loadedDevice.html">setting the loaded device</a>.</p>
+
+<p>Once a VR device is loaded (<a href="../ScriptReference/VR.VRSettings-loadedDevice.html">loadedDevice</a> returns something other than None), you can enable VR globally and start rendering to your device by setting <a href="../ScriptReference/VR.VRSettings-enabled.html">VR.VRSettings.enabled</a> to true.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityAnalytics51Upgrade.html"></a></span><div class="tip">Unity Analytics Upgrade Instructions</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="VRReference.html"></a></span><div class="tip">VR Reference</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2015 Unity Technologies</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Learn</a><a href="http://unity3d.com/community">Community</a><a href="http://unity3d.com/asset-store">Asset Store</a><a href="https://store.unity3d.com">Buy</a><a href="http://unity3d.com/unity/download">Download</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>

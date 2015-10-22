@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Using the NetworkManager</title>
+<meta name="description" content="Develop once, publish everywhere! Unity is the ultimate tool for video game development, architectural visualizations, and interactive media installations - publish to the web, Windows, OS X, Wii, Xbox 360, and iPhone with many more platforms to come.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1439907317"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1439907317"></script><script type="text/javascript" src="docdata/toc.js?ts=1439907317"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1439907317"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1439907317">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content"><div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetManager.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetManager.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetManager.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetManager.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetManager.html">Русский</a></li>
+</ul></div>
+</div></div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManualRestructured.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li>Using the NetworkManager</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetConcepts.html"></a></span><div class="tip">Network System Concepts</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetSpawning.html"></a></span><div class="tip">Object Spawning</div>
+</div>
+</div></div>
+<h1>Using the NetworkManager</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The NetworkManager is a component for managing the network state of a multiplayer game. It is actually implemented entirely using the HLAPI, so everything it does is available to developers in other forms. However the NetworkManager wraps up a lot of useful functionality into a single place and makes creating, running and debugging multiplayer games as simple as possible.</p>
+
+<p>The NetworkManager can be used entirely without scripting. It has inspector controls in the editor that allow configuration of all of its features, and The NetworkManagerHUD supplies a simple, default user interface at runtime that allows the network game to be controlled by the user. For advanced uses, developers can derive a class from NetworkManager and customize its behaviour by overriding any of the virtual function hooks that it provides.</p>
+
+<p>The NetworkManager features include:</p>
+
+<ul>
+<li>Game State Management</li>
+<li>Spawning Management</li>
+<li>Scene Management</li>
+<li>Debugging Information</li>
+<li>Matchmaking</li>
+<li>Customization</li>
+</ul>
+
+<h2>Getting Started with NetworkManager</h2>
+
+<p>The NetworkManager can be used as the core controlling component of a multiplayer game. To get started, create an empty game object in your starting scene, or pick a convenient manager object. Then add the NetworkManager component from the <span class="doc-menu">Component &gt; Network &gt; NetworkManager</span> menu item. The newly added NetworkManager component should look something like:</p>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerInspector.png" alt="">
+</figure>
+
+<p>The inspector for the NetworkManager in the editor allows you to configure and control many things, and look into the network state of the game while it is running. To get started, check the “Show Runtime GUI” box. This will cause the default control UI to be shown when the game is running. This UI will look like:</p>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerRuntimeUI.png" alt="">
+</figure>
+
+<p>Real games will have a proper user interface for controlling the game state and to allow players to choose what kind of game to play. But, to get started, we can use this to control the game.</p>
+
+<h2>Game State Management</h2>
+
+<p>A UNet multiplayer game can run in three modes - as a client, as a dedicated server, or as a “Host” which is both a client and a server at the same time. UNet is designed to make the same game code and assets work in all of these cases. Developing for the single player version of the game and the multiplayer version of the game should be the same thing.</p>
+
+<p>NetworkManager has methods for entering each of these modes. NetworkManager.StartClient(), NetworkManager.StartServer() and NetworkManager.StartHost() are all available to script code, so they can be invoked from keyboard input handlers or from custom user interfaces. The default runtime controls that can optionally be displayed also invoke these same functions. There are also buttons in the NetworkManager inspector available when in play mode that call the same functions:</p>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerRuntimeControls.png" alt="">
+</figure>
+
+<p>Whatever method is used to change the game state, the properties networkAddress and networkPort are used. When a server or host is started, networkPort becomes the listen port. When a client is started, networkAddress is the address to connect to, and networkPort is the port to connect to.</p>
+
+<h2>Spawning Management</h2>
+
+<p>The NetworkManager can be used to manage spawning of networked objects from prefabs. Most games have a prefab used as the main player object, so the NetworkManager has a slot to drag the player prefab. It also allows the default spawn position be entered. When a player prefab is set, a player object will automatically be spawned at the spawn position from that prefab for each user in the game. This applies to the local player on a hosted server, and remote players on remote clients. Note that the player prefab must have the NetworkIdentity component on it.</p>
+
+<p>In addition to the player prefab, the prefabs of other objects that will be dynamically spawned must be registered with the NetworkClient. This can be done with the NetworkClient.RegisterPrefab() functions, or it can be done by the NetworkManager automatically. Adding prefabs to the spawn list will make them be auto-registered. The spawn configuration section of the NetworkManager inspector looks like:</p>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerSpawning.png" alt="">
+</figure>
+
+<p>Once a player prefab is set, you should be able to start the game as a host and see the player object be spawned. Stopping the game should make the player object be destroyed. Running another copy of the game and connecting as a client to localhost should make another player object appear, and stopping that client should make that client’s player object be destroyed.</p>
+
+<p>The player object is spawned by the default implementation of NetworkManager.OnServerAddPlayer. If you want to customize the way player objects are created, you can override that virtual function. The default implementation is something like:</p>
+
+<pre><code>public virtual void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+{
+    var player = (GameObject)GameObject.Instantiate(playerPrefab, playerSpawnPos, Quaternion.identity);
+    NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+}
+</code></pre>
+
+<p>Note that the function NetworkServer.AddPlayerForConnection() must be called for the newly created player object so that it is spawned and associated with the client’s connection.</p>
+
+<h2>Scene Management</h2>
+
+<p>Most games have more than one scene. At very least there is usually a title screen or starting menu scene in addition to the scene where the game is actually played. The NetworkManager is setup to automatically manage scene state and scene transitions in a way that works for a multiplayer game. There are two slots on the NetworkManager inspector, the offlineScene and the onlineScene. Dragging scene objects into these slots activates networked scene management. </p>
+
+<p>When a server or host is started, the online scene will be loaded. This will then become the current network scene. Any clients that connect to that server will be instructed to also load that scene. The name of this scene is stored in the networkSceneName property.</p>
+
+<p>When the network is stopped, by stopping the server or host, or by a client disconnecting, the offline scene will be loaded. This allows the game to automatically return to a menu scene when disconnected from a multiplayer game.</p>
+
+<p>You can also change scenes while the game is active by calling NetworkManager.ServerChangeScene(). This will make all the currently connected clients change scene too, and will update networkSceneName so that new clients will also load the new scene.</p>
+
+<p>While networked scene management is active, any calls to game state management functions such NetworkManager.StartHost() or NetworkManager.StopClient() can cause scene changes. This applies to the runtime control UI. So by setting up scenes and calling these functions it is easy to control the flow of a multiplayer game.</p>
+
+<p>Note that scene changes cause all the objects in the scene to be destroyed. This could include the NetworkManager! If you want the NetworkManager to persist between scenes, then ensure the “Dont Destroy On Load” checked boxed is set to true. In simple cases, this is the best configuration. But, it is possible to have a NetworkManager in each scene with different settings to control incremental prefab loading, or different scene transitions.</p>
+
+<h2>Debugging Information</h2>
+
+<p>The NetworkManagerHUD inspector panel shows additional information about the state of the network at runtime. This includes:</p>
+
+<ul>
+<li>network connections</li>
+<li>active NetworkIdentity server objects</li>
+<li>active NetworkIdentity client objects</li>
+<li>client peers</li>
+</ul>
+
+<p>Also, registered client message handlers are shown in the preview window.</p>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerDebugInfo.png" alt="">
+</figure>
+
+<h2>Matchmaking</h2>
+
+<p>The NetworkManager runtime UI and NetworkManager inspector UI allow interactions with the matchmaker service. The function NetworkManager.StartMatchmaker() enables matchmaking, and populates the NetworkManager.matchmaker property with a NetworkMatch object. Once this is active, the default UIs use it and callback functions on NetworkManager to let you perform simple matchmaking.</p>
+
+<p>There are virtual functions on NetworkManager that derived classes can use to customize behaviour of responding to matchmaker callbacks.</p>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerMatchmaker.png" alt="">
+</figure>
+
+<h2>Customization</h2>
+
+<p>There are virtual functions on NetworkManager that derived classes can use to customize behaviour. When implementing these functions, be sure to take care of the functionality that the default implementations provide. For example, in OnServerAddPlayer(), the function NetworkServer.AddPlayer must be called to active the player object for the connection.</p>
+
+<p>Functions invoked on the Server/Host:</p>
+
+<pre><code>// called when a client connects 
+public virtual void OnServerConnect(NetworkConnection conn);
+
+// called when a client disconnects
+public virtual void OnServerDisconnect(NetworkConnection conn)
+{
+    NetworkServer.DestroyPlayersForConnection(conn);
+}
+
+// called when a client is ready
+public virtual void OnServerReady(NetworkConnection conn)
+{
+    NetworkServer.SetClientReady(conn);
+}
+
+// called when a new player is added for a client
+public virtual void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+{
+    var player = (GameObject)GameObject.Instantiate(playerPrefab, playerSpawnPos, Quaternion.identity);
+    NetworkServer.AddPlayer(conn, player, playerControllerId);
+}
+
+// called when a player is removed for a client
+public virtual void OnServerRemovePlayer(NetworkConnection conn, short playerControllerId)
+{
+    NetworkPlayer player;
+    if (conn.GetPlayer(playerControllerId, out player))
+    {
+        if (player.NetworkIdentity != null &amp;&amp; player.NetworkIdentity.gameObject != null)
+            NetworkServer.Destroy(player.NetworkIdentity.gameObject);
+    }
+}
+
+// called when a network error occurs
+public virtual void OnServerError(NetworkConnection conn, int errorCode);
+</code></pre>
+
+<p>Functions invoked on the Client:</p>
+
+<pre><code>// called when connected to a server
+public virtual void OnClientConnect(NetworkConnection conn)
+{
+    ClientScene.Ready(conn);
+    ClientScene.AddPlayer(0);
+}
+
+// called when disconnected from a server
+public virtual void OnClientDisconnect(NetworkConnection conn)
+{
+    StopClient();
+}
+
+// called when a network error occurs
+public virtual void OnClientError(NetworkConnection conn, int errorCode);
+
+// called when told to be not-ready by a server
+public virtual void OnClientNotReady(NetworkConnection conn);
+</code></pre>
+
+<p>Functions invoked for the Matchmaker:</p>
+
+<pre><code>// called when a match is created
+public virtual void OnMatchCreate(CreateMatchResponse matchInfo)
+
+// called when a list of matches is received
+public virtual void OnMatchList(ListMatchResponse matchList)
+
+// called when a match is joined
+public void OnMatchJoined(JoinMatchResponse matchInfo)
+</code></pre>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetConcepts.html"></a></span><div class="tip">Network System Concepts</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetSpawning.html"></a></span><div class="tip">Object Spawning</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2015 Unity Technologies</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Learn</a><a href="http://unity3d.com/community">Community</a><a href="http://unity3d.com/asset-store">Asset Store</a><a href="https://store.unity3d.com">Buy</a><a href="http://unity3d.com/unity/download">Download</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>

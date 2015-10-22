@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: State Synchronization</title>
+<meta name="description" content="Develop once, publish everywhere! Unity is the ultimate tool for video game development, architectural visualizations, and interactive media installations - publish to the web, Windows, OS X, Wii, Xbox 360, and iPhone with many more platforms to come.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1439907317"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1439907317"></script><script type="text/javascript" src="docdata/toc.js?ts=1439907317"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1439907317"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1439907317">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content"><div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetStateSync.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetStateSync.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetStateSync.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetStateSync.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetStateSync.html">Русский</a></li>
+</ul></div>
+</div></div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManualRestructured.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li>State Synchronization</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetSpawning.html"></a></span><div class="tip">Object Spawning</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetActions.html"></a></span><div class="tip">Remote Actions</div>
+</div>
+</div></div>
+<h1>State Synchronization</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>SyncVars</h2>
+
+<p>SyncVars are member variables of NetworkBehaviour scripts that are synchronized from the server to clients. When an object is spawned, or a new player joins a game in progress, they are sent the latest state of all SyncVars on networked objects that are visible to them. Member variables are made into SyncVars by using the [SyncVar] custom attribute:</p>
+
+<pre><code>class Player : NetworkBehaviour
+{
+
+    [SyncVar]
+    int health;
+
+    public void TakeDamage(int amount)
+    {
+        if (!isServer)
+            return;
+
+        health -= amount;
+    }
+}
+</code></pre>
+
+<p>The state of SyncVars is applied to objects on clients before OnStartClient() is called, so the state of the object is guaranteed to be up-to-date inside OnStartClient().</p>
+
+<p>SyncVars can be basic types such as integers, strings and floats. They can also be Unity types such as Vector3 and user-defined structs, but updates for struct SyncVars are sent as monolithic updates, not incremental changes if fields within a struct change.</p>
+
+<p>SyncVar updates are sent automatically by the server when the value of a SyncVar changes. There is no need to perform any manual dirtying of fields for SyncVars.</p>
+
+<h2>SyncLists</h2>
+
+<p>SyncLists are like SyncVars but they are lists of values instead of individual values. SyncList contents are included in initial state updates with SyncVar state. SyncLists do not require the SyncVar attributes, they are specific classes. There are built-in SyncList types for basic types:</p>
+
+<ul>
+<li>SyncListString</li>
+<li>SyncListFloat</li>
+<li>SyncListInt</li>
+<li>SyncListUInt</li>
+<li>SyncListBool</li>
+</ul>
+
+<p>There is also SyncListStruct which can be used for lists of user-defined structs. </p>
+
+<h2>Custom Serialization</h2>
+
+<p>Often the use of SyncVars is enough for scripts to serialize their state to clients, but some cases require more complex serialization code. The virtual functions on NetworkBehaviour that are used for SyncVar serialization can be implmented by developers to perform their own custom serialization. These functions are:</p>
+
+<pre><code>public virtual bool OnSerialize(NetworkWriter writer, bool initialState);
+public virtual void OnDeserialize(NetworkReader reader, bool initialState);
+</code></pre>
+
+<p>If the OnSerialize function returns true, this means that the object was dirty and an update should be sent.</p>
+
+<p>The initialState flag is useful to differentiate between the first time an object is serialized and when incremental updates can be sent. The first time an object is sent to a client, it must include a full state snapshot, but subsequent updates can save on bandwidth by including only incremental changes.</p>
+
+<p>The OnSerialization method will only be invoked on an instance on the server if it is dirty. NetworkBehaviour components can be set dirty by calling SetDirtyBit() on them. This function takes a binary mask that is OR’ed with the current dirty state of the object. This mask is available inside OnSerialize as syncVarDirtyBits. It is automatically reset when OnSerialize returns true. This can be used for doing compact incremental state updates. Note that changing the value of a SyncVar member variable automatically sets dirty bits on that instance, so there is no need to call SetDirtyBit() manually in that case.</p>
+
+<p>If a class has SyncVars, then implementations of these functions are added automatically to the class. So a class that has SyncVars cannot also have custom serialization functions.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetSpawning.html"></a></span><div class="tip">Object Spawning</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetActions.html"></a></span><div class="tip">Remote Actions</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2015 Unity Technologies</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Learn</a><a href="http://unity3d.com/community">Community</a><a href="http://unity3d.com/asset-store">Asset Store</a><a href="https://store.unity3d.com">Buy</a><a href="http://unity3d.com/unity/download">Download</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>

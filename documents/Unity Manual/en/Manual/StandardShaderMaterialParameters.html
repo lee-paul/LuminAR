@@ -1,0 +1,486 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Material parameters</title>
+<meta name="description" content="Develop once, publish everywhere! Unity is the ultimate tool for video game development, architectural visualizations, and interactive media installations - publish to the web, Windows, OS X, Wii, Xbox 360, and iPhone with many more platforms to come.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1439907317"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1439907317"></script><script type="text/javascript" src="docdata/toc.js?ts=1439907317"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1439907317"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1439907317">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content"><div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/StandardShaderMaterialParameters.html">English</a></li>
+<li><a href="/ja/current/Manual/StandardShaderMaterialParameters.html">日本語</a></li>
+<li><a href="/es/current/Manual/StandardShaderMaterialParameters.html">Español</a></li>
+<li><a href="/kr/current/Manual/StandardShaderMaterialParameters.html">한국어</a></li>
+<li><a href="/ru/current/Manual/StandardShaderMaterialParameters.html">Русский</a></li>
+</ul></div>
+</div></div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManualRestructured.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li><a href="Shaders.html">Shaders</a></li>
+<li><a href="shader-StandardShader.html">Standard Shader</a></li>
+<li>Material parameters</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="StandardShaderMetallicVsSpecular.html"></a></span><div class="tip">Metallic vs Specular Workflow</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="StandardShaderMaterialCharts.html"></a></span><div class="tip">Material charts</div>
+</div>
+</div></div>
+<h1>Material parameters</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The standard shader presents you with a list of material parameters. These parameters vary slightly depending on whether you have chosen to work in the Metallic workflow mode or the Specular workflow mode. Most of the parameters are the same across both modes, and this page covers all the parameters for both modes.</p>
+
+<p>These parameters can be used together to recreate the look of almost any real-world surface.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderNewEmptyMaterial.png" alt="A Standard Shader material with default parameters and no values or textures assigned">
+<figcaption>A Standard Shader material with default parameters and no values or textures assigned</figcaption>
+</figure>
+
+<h2>Rendering Mode</h2>
+
+<p>The first option is Rendering Mode. This allows you to choose whether the object uses transparency, and if so, which type of blending mode to use. </p>
+
+<ul>
+<li><p>
+<strong>Opaque</strong> - Is the default, and suitable for normal solid objects with no transparent areas.</p></li>
+<li><p>
+<strong>Cutout</strong> - Allows you to create a transparent effect that has hard edges between the opaque and transparent areas. In this mode, there are no semi-transparent areas, the texture is either 100% opaque, or invisible. This is useful when using transparency to creat the shape of =materials such as leaves, or cloth with holes and tatters.</p></li>
+<li><p>
+<strong>Transparent</strong> - Suitable for rendering realistic transparent materials such as clear plastic or glass. In this mode, the material itself will take on transparency values (based on the texture’s alpha channel and the alpha of the tint colour), however reflections and lighting highlights will remain visible at full clarity as is the case with real transparent materials.</p></li>
+<li><p>
+<strong>Fade</strong> - Allows the transparency values to entirely fade an object out, including any specular highlights or reflections it may have. This mode is useful if you want to animate an object fading in or out. It iss not suitable for rendering realistic transparent materials such as clear plastic or glass because the reflections and highlights will also be faded out.</p></li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/StandardShaderTransparencySkyBoxReflection.png" alt="The helmet visor in this image is rendered using the Transparent mode, because it is supposed to represent a real physical object that has transparent properties. Here the visor is reflecting the skybox in the scene. ">
+<figcaption>The helmet visor in this image is rendered using the Transparent mode, because it is supposed to represent a real physical object that has transparent properties. Here the visor is reflecting the skybox in the scene. </figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderTransparentWindow.png" alt="These windows use Transparent mode, but have some fully opaque areas defined in the texture (the window frames). The Specular reflection from the light sources reflects off the transparent areas and the opaque areas.">
+<figcaption>These windows use Transparent mode, but have some fully opaque areas defined in the texture (the window frames). The Specular reflection from the light sources reflects off the transparent areas and the opaque areas.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderFadeHologram.png" alt="The hologram in this image is rendered using the Fade mode, because it is supposed to represent an opaque object that is partially faded out.">
+<figcaption>The hologram in this image is rendered using the Fade mode, because it is supposed to represent an opaque object that is partially faded out.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderCutoutGrassExample.png" alt="The grass in this image is rendered using the Cutout mode. This gives clear sharp edges to objects which is defined by specifying a cut-off threshold. All parts of the image with the alpha value above this threshold are 100% opaque, and all parts below the threshold are invisible. To the right in the image you can see the material settings and the alpha channel of the texture used.">
+<figcaption>The grass in this image is rendered using the Cutout mode. This gives clear sharp edges to objects which is defined by specifying a cut-off threshold. All parts of the image with the alpha value above this threshold are 100% opaque, and all parts below the threshold are invisible. To the right in the image you can see the material settings and the alpha channel of the texture used.</figcaption>
+</figure>
+
+<hr>
+
+<h2>Albedo Colour</h2>
+
+<p>The Albedo parameter controls the base color of the surface.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderAlbedoGraduationTable.svg" alt="A range of black to white albedo values">
+<figcaption>A range of black to white albedo values</figcaption>
+</figure>
+
+<p>Specifying a single colour for the Albedo value is sometimes useful, but it is far more common to assign a texture map for the Albedo parameter. This should represent the colours of the surface of the object. It’s important to note that the Albedo texture should <strong>not</strong> contain any lighting, since the lighting will be added to it based on the context in which the object is seen.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderAlbedoTextureExamples.png" alt="Two examples of typical Albedo texture maps. On the left is a texture map for a character model, and on the right is a wooden crate. Notice there are no shadows or lighting highlights.">
+<figcaption>Two examples of typical Albedo texture maps. On the left is a texture map for a character model, and on the right is a wooden crate. Notice there are no shadows or lighting highlights.</figcaption>
+</figure>
+
+<hr>
+
+<h3>Transparency</h3>
+
+<p>The alpha value of the Albedo colour controls the transparency level for the material. This only has an effect if the Rendering Mode for the material is set to one of the transparent mode, and not <strong>Opaque</strong>. As mentioned above, picking the correct transparency mode is important because it determines whether or not you will still see reflections and specular highlights at full value, or whether they will be faded out according to the transparency values too.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderTransparencyGraduationTable.png" alt="A range of transparency values from 0 to 1, using the Transparent mode suitable for realistic transparent objects">
+<figcaption>A range of transparency values from 0 to 1, using the Transparent mode suitable for realistic transparent objects</figcaption>
+</figure>
+
+<p>When using a texture assigned for the Albedo parameter, you can control the transparency of the material by ensuring your albedo texture image has an <strong>alpha channel</strong>. The alpha channel values are mapped to the transparency levels with white being fully opaque, and black being fully transparent. This will have the effect that your material can have areas of varying transparency.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderTransparencyMapRGBAlphaToggle.png" alt="An imported texture with RGB channels and an Alpha Channel. You can click the RGB/A button as shown to toggle which channels of the image you are previewing.">
+<figcaption>An imported texture with RGB channels and an Alpha Channel. You can click the RGB/A button as shown to toggle which channels of the image you are previewing.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderTransparencyMapBrokenWindow.png" alt="The end result, peering through a broken window into a building. The gaps in the glass are totally transparent, while the glass shards are partially transparent and the frame is fully opaque.">
+<figcaption>The end result, peering through a broken window into a building. The gaps in the glass are totally transparent, while the glass shards are partially transparent and the frame is fully opaque.</figcaption>
+</figure>
+
+<hr>
+
+<h2>Specular workflow mode</h2>
+
+<figure>
+<img src="../uploads/Main/StandardShaderSpecularMode.png" alt="">
+</figure>
+
+<h3>Specular parameter</h3>
+
+<p>The specular parameter is only visible when using the specular workflow. Specular effects are essentially the direct reflections of light sources in your scene which typically show up as bright highlights or shines on the surface of objects (although specular highlights can be subtle or diffuse too).</p>
+
+<p>Both the specular and metallic workflow will produce specular highlights, so the choice as to which to use is more a matter of workflow and artistic preference. In the specular workflow you have direct control over the brightness and tint colour of specular highlights, wheras in the metallic workflow you control other parameters and the intensity and colour of the specular highlights emerge as an natural result of the other parameter settings.</p>
+
+<p>When working in Specular mode, the RGB colour in the specular parameter controls the strength and colour tint of the specular reflectivity. This includes shines from light sources and reflections from the environment. The smoothness parameter controls the clarity of the specular effect. With a low smoothness value, even strong specular reflections appear blurred and diffuse. With a high smoothness value, specular reflections are crisper and clearer.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderReflectivityGraduationTable.svg" alt="This chart shows the specular and smoothness values being ramped up from 0 to 1 together.">
+<figcaption>This chart shows the specular and smoothness values being ramped up from 0 to 1 together.</figcaption>
+</figure>
+
+<h3>Smoothness parameter</h3>
+
+<p>The concept of Smoothness applies to both the Specular workflow and the Metallic workflow, and works in very much the same way in both. By default, the smoothness of the material is controlled by a slider. This slider allows you to control the “microsurface detail” or smoothness across a surface. </p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderSmoothnessGraduationTable.svg" alt="A range of smoothness values from 0 to 1">
+<figcaption>A range of smoothness values from 0 to 1</figcaption>
+</figure>
+
+<p>The “microsurface detail” is not something directly visible in Unity, it is a concept used in the lighting calculations. You can however see the effect of this microsurface detail represented by the amount the light is diffused as it bounces off the object. With a smooth surface, all light rays tends to bounce off at a predictable and consistent angle. Taken to its extreme, a perfectly smooth surface reflects light like a mirror. Less smooth surfaces reflect light off over a wider range of angles (as the light hits the microsurface bumps) and therefore the reflections have less detail and are spread across the surface in a more diffuse way.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderMicrosurfaceDiagram.svg" alt="A comparison of low, medium and high values for smoothness as a diagram of the theoretical microsurface detail of a material. The yellow lines represent light rays hitting the surface and reflecting off the angles encountered at varying levels of smoothness.">
+<figcaption>A comparison of low, medium and high values for smoothness as a diagram of the theoretical microsurface detail of a material. The yellow lines represent light rays hitting the surface and reflecting off the angles encountered at varying levels of smoothness.</figcaption>
+</figure>
+
+<p>A smooth surface has very low microsurface detail, or none at all, and so light bounces off in uniform way creating clear reflections. A rough surface has high peaks and troughs in its microsurface detail, so light bounces off in a wide range of angles creating a diffuse colour with no clear reflections.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderEnergyConservation.png" alt="A comparison of low, medium and high values for smoothness. At low levels, the reflected light at each point on the surface comes from a wide area, because the microsurface detail is bumpy and scatters light. At high values of smoothness, the light at each point comes from a narrowly focused area, giving a much clearer reflection of the objects environment.">
+<figcaption>A comparison of low, medium and high values for smoothness. At low levels, the reflected light at each point on the surface comes from a wide area, because the microsurface detail is bumpy and scatters light. At high values of smoothness, the light at each point comes from a narrowly focused area, giving a much clearer reflection of the object’s environment.</figcaption>
+</figure>
+
+<p>At low levels, the reflected light at each point on the surface comes from a wide area, because the microsurface detail is bumpy and scatters light. At high values of smoothness, the light at each point comes from a narrowly focused area, giving a much clearer reflection of the object’s environment.</p>
+
+<p>Similar to the previous parameters mentioned, instead of a single value a texture map can be assigned. This allows greater control - you can vary the strength and colour of the specular light reflections across the surface of the material.</p>
+
+<p>When working in the specular workflow, if you have a specular texture assigned, the smoothness slider is no longer available because the Alpha channel of the specular texture will be used as the smoothness values across the surface of the material. This means you can create materials which include a variety of smoothness levels across the surface (usually designed to match what is shown in the albedo texture).</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderSpecularColVsTex.png" alt="Left: No map assigned for specular, so a slider is available for Smoothness. Right: a map has been assigned for specular, so the greyscale Alpha channel values from that map will be used as the smoothness map.">
+<figcaption>Left: No map assigned for specular, so a slider is available for Smoothness. Right: a map has been assigned for specular, so the greyscale Alpha channel values from that map will be used as the smoothness map.</figcaption>
+</figure>
+
+<p>Smoother surfaces are more reflective and have smaller more tightly focused specular highlights. Less smooth surfaces do not reflect as much, and specular highlights are less noticable and spread wider across the surface. By matching the specular and smoothness maps to the content in your albedo map, you can begin to create very realistic looking textures.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderSpecularCol1000kgWeight.png" alt="An example of a 1000kg weight with a strong specular reflection from a directional light.">
+<figcaption>An example of a 1000kg weight with a strong specular reflection from a directional light.</figcaption>
+</figure>
+
+<p>Here an example of a 1000kg weight with a strong specular reflection from a directional light. The specular reflection and smoothness values are defined by a colour and slider, no texture has been assigned - so the specular and smoothness level is constant across the whole surface. This is not always desirable, particularly in the case where your albedo texture maps to a variety of different areas on your model (also known as a texture atlas).</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderSpecularMap1000kgWeight.png" alt="The same model, but with a specular map assigned, instead of a using constant value.">
+<figcaption>The same model, but with a specular map assigned, instead of a using constant value.</figcaption>
+</figure>
+
+<p>Here a texture map controls the specularity and smoothness. This allows the specularity to vary across the surface of the model. Notice the edges have a higher specular effect than the centre, there are some subtle colour responses to the light, and area inside the lettering no longer has specular highlights. Pictured to the right are the RGB channels controlling the specular colour and strength, and the Alpha channel controlling the smoothness.</p>
+
+<hr>
+
+<h2>Metallic workflow mode</h2>
+
+<figure>
+<img src="../uploads/Main/StandardShaderMetallicMode.png" alt="">
+</figure>
+
+<p>When working in the <strong>Metallic workflow</strong> (as opposed to the Specular workflow), the the reflectivity and light response of the surface are modified by the Metallic level and the Smoothness level. Specular reflections are still generated when using this workflow but they arise naturally depending on the settings you give for the Metallic and Smoothness levels, rather than being explicitly defined.</p>
+
+<p>
+<strong>Metallic mode is not just for materials which are supposed to look metallic!</strong> This mode is known as metallic because of the way you have control over how metallic or non-metallic a surface is.</p>
+
+<h3>Metallic parameter</h3>
+
+<p>The metallic parameter of a material determines how “metal-like” the surface is. When a surface is more metallic, it reflects the environment more and its albedo colour becomes less visible. At full metallic level, the surface colour is entirely driven by reflections from the environment. When a surface is less metallic, its albedo colour is more clear and any surface reflections are visible on top of the surface colour, rather than obscuring it.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderMetallicGraduationTable.png" alt="A range of metallic values from 0 to 1 (with smoothness at a constant 0.8 for all samples)">
+<figcaption>A range of metallic values from 0 to 1 (with smoothness at a constant 0.8 for all samples)</figcaption>
+</figure>
+
+<h3>Smoothness parameter</h3>
+
+<p>As mentioned above, The smoothness value controls the theoretical “microsurface detail” of the material. This is essentially the same as when working in Specular mode.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderSmoothnessGraduationTable.svg" alt="A range of smoothness values from 0 to 1">
+<figcaption>A range of smoothness values from 0 to 1</figcaption>
+</figure>
+
+<p>By default, with no texture assigned, the Metallic and Smoothness parameters are controlled by a slider each. This is enough for some materials. However if your model’s surface has areas with a mixture of surface types in the albedo texture, you can use a texture map to control how the metallic and smoothness levels vary across the surface of the material.</p>
+
+<p>With a texture assigned to the Metallic parameter, both sliders will disappear. Instead, the Metallic levels for the material are controlled by the values in the Red channel of the texture, and the Smoothness levels for the material are controlled by the Alpha channel of the texture. (This means the Green and Blue channels are ignored). This means you have a single texture which can define areas as being rough or smooth, and metallic or non-metallic, which is very useful when working texture maps that cover many areas of a model with varying requirements - for example a single character texture map often includes multiple surface requirements - leather shoes, cloth clothes, skin for the hands and face and metal buckles.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderMetallicMap.png" alt="An example of the difference a Metal/Smoothness texture map can have">
+<figcaption>An example of the difference a Metal/Smoothness texture map can have</figcaption>
+</figure>
+
+<p>In the example above, on the left, the case has an albedo map, but no texture for Metallic. This means the whole object has a single metallic and smoothness value, which is not ideal. The leather straps, the metal buckles, the sticker and the handle should all appear to have different surface properties.</p>
+
+<p>On the right, a Metal/Smoothness texture map has been assigned. The buckle now has a high metallic value and responds to light accordingly. The leather straps are shinier than the leather body of the box, however they have a low “Metallic” value, so it appears to be shiny non-metal surface. The black and white map on the far right shows the lighter areas for metal, and mid to low greys for the leather.</p>
+
+<hr>
+
+<h3>Normal map parameter</h3>
+
+<p>Describes relief/bumpiness of surface. Normal maps are a special kind of texture map where the red, green and blue values represent distortions to the otherwise smooth surface of the triangles which make up the mesh of your model. These distortions affect the surface lighting, giving the impression of detailed geometry on the surface of the model without requiring actual geometry to represent the detail.</p>
+
+<p>For example, you might want to show a surface which has grooves and screws or rivets across the surface, like an aircraft hull. One way to do this would be to model these details as geometry, as shown below, however this would generate a very large number of triangles and vertices which is not good for performance. </p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderNormalMapBadGeometry.png" alt="A sheet of aircraft metal with details modeled as real geometry. Dont do this! On the right you can see the polygons required to make up the detail of a single screwhead. This is not good for performance, we should use a normal map instead!">
+<figcaption>A sheet of aircraft metal with details modeled as real geometry. Don’t do this! On the right you can see the polygons required to make up the detail of a single screwhead. This is not good for performance, we should use a normal map instead!</figcaption>
+</figure>
+
+<p>If we instead represent this detail with a normalmap, the surface geometry can become much simpler, and the detail is represented as a texture which modulates how light reflects off the surface. This is something modern graphics hardware can do extremely fast. Your metal surface can now be a low-poly flat plane, and the rivets will catch the light and appear rounded because of the texture.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderNormalMapAircraftSurface.png" alt="The rivets, grooves and scratches are defined in a normalmap, which modifies how light reflects off the surface of this low-poly plane, giving the impression of 3D detail. As well as the rivets and screws, a texture allows us to include far more detail like subtle bumps and scratches.">
+<figcaption>The rivets, grooves and scratches are defined in a normalmap, which modifies how light reflects off the surface of this low-poly plane, giving the impression of 3D detail. As well as the rivets and screws, a texture allows us to include far more detail like subtle bumps and scratches.</figcaption>
+</figure>
+
+<p>In modern game development art pipelines, artists will use their 3D modelling applications to generate normal maps based on very high resolution source models. The normal maps are then mapped onto a lower-resolution game-read version of the model, so that the original high-resolution detail is rendered using the normalmap.</p>
+
+<p>For information about creating, importing and using normalmaps, <a href="HOWTO-bumpmap.html">see this guide</a>.</p>
+
+<hr>
+
+<h3>Heightmap parameter</h3>
+
+<p>Heightmapping (or parallax mapping) is a similar concept to normal mapping, however this technique is more complex (and therefore also more performance-expensive). Heightmaps are usually used in conjunction with normalmaps, and often they are used to give extra definition to surfaces where the texture maps are responsible for rendering large bumps and protrusions.</p>
+
+<p>While normal mapping modifies the lighting across the surface of the texture, heightmapping goes a step further and actually shifts the areas of the visible surface texture around, to achieve a kind of surface-level occlusion effect. This means that apparent bumps will have their near side (facing the camera) expanded and exaggerated, and their far side (facing away from the camera) will be reduced and seem to be occluded from view.</p>
+
+<p>This effect, while it can produce a very convincing representation of 3D geometry, is still limited to the surface of an object. This means that while surface bumps will appear to protrude and occlude each other, the “silhouette” of the model will never be modified, because ultimately the effect is drawn onto the surface of the model and does not modify the actual geometry.</p>
+
+<p>A heightmap should be a greyscale image, with white areas representing the high areas of your texture and black representing the low areas. Here’s a typical albedo map and a heightmap to match.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderHeightmapTexture.png" alt="An albedo colour map, and a heightmap to match.">
+<figcaption>An albedo colour map, and a heightmap to match.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderParallaxMap.jpg" alt="">
+</figure>
+
+<p>From left to right in the above image:
+ 1. A rocky wall material with albedo assigned, but no normalmap or heightmap.
+ 2. The normal assigned. Lighting is modified on the surface, but rocks do not occlude each other.
+ 3. The final effect with normalmap and heightmap assigned. The rocks appear to protrude out from the surface, and nearer rocks seem to occlude rocks behind them.</p>
+
+<p>Often (but not always) the greyscale image used for a heightmap is also a good image to use for the occlusion map. For information on occlusion maps, see the next section.</p>
+
+<hr>
+
+<h3>Occlusion Map Parameter</h3>
+
+<p>The occlusion map is used to provide information about which areas of the model should receive high or low indirect lighting. Indirect lighting comes from ambient lighting and reflections, and so steep concave parts of your model such as a crack or fold would not realistically receive much indirect light.</p>
+
+<p>Occlusion texture maps are normally calculated by 3D applications directly from the 3D model using the modeller or third party software.</p>
+
+<p>An occlusion map is a greyscale image, with white indicating areas that should receive full indirect lighting, and black indicating no indirect lighting. Sometimes this is as simple as a greyscale heightmap, for simple surfaces (such as the knobbly stone wall texture shown in the heightmap example above).</p>
+
+<p>At other times, generating the correct occlusion texture is slightly more complex. For example, if a character in your scene is wearing a hood, the inside edges of the hood should be set to very low indirect lighting, or none at all. In these situations, occlusion maps will be often be produced by artists, using 3D applications to automatically generate an occlusion map based on the model.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderOcclusionMapTexture.png" alt="This occlusion map identifies areas on a characters sleeve that are exposed or hidden from ambient lighting. It is used on the model pictured below.">
+<figcaption>This occlusion map identifies areas on a character’s sleeve that are exposed or hidden from ambient lighting. It is used on the model pictured below.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderOcclusionMap.png" alt="Before and after applying an occlusion map. The areas that are partially obscured, particularly in the folds of fabric around the neck, are lit too brightly on the left. After the ambient occlusion map is assigned, these areas are no longer lit by the green ambient light from the surrounding wooded environment.">
+<figcaption>Before and after applying an occlusion map. The areas that are partially obscured, particularly in the folds of fabric around the neck, are lit too brightly on the left. After the ambient occlusion map is assigned, these areas are no longer lit by the green ambient light from the surrounding wooded environment.</figcaption>
+</figure>
+
+<hr>
+
+<h3>Emission Parameter</h3>
+
+<p>Controls colour and intensity of light emitted from the surface. When an emissive material is used in your scene, it appears to be a visible source of light itself. The object will appear “self illuminated”.</p>
+
+<p>Emissive materials are usually used on objects where some part should appear to be lit up from inside, such as the screen of a monitor, the disc brakes of a car braking at high speed, glowing buttons on a control panel, or a monster’s eyes which are visible in the dark.</p>
+
+<p>Simple emissive materials can be defined using a single colour and emission level. If you set the emission level to a value higher than the default zero, the emission colour and strength field will appear:</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderEmissiveFlatMaterialInspector.png" alt="A material with a red emission colour, and an emission brightness of 0.5">
+<figcaption>A material with a red emission colour, and an emission brightness of 0.5</figcaption>
+</figure>
+
+<p>Objects using these materials will appear to remain bright even when in dark areas in your scene.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderEmissiveFlatColour.png" alt="Red, Green and Blue spheres using emissive materials. Even though they are in a dark scene, they appear lit from an internal light source.">
+<figcaption>Red, Green and Blue spheres using emissive materials. Even though they are in a dark scene, they appear lit from an internal light source.</figcaption>
+</figure>
+
+<p>As well as simple control over emission using a flat colour and brightness setting, you can assign an emission map to this parameter. As with the other texture map parameters, this gives you much finer control over which areas of your material appear to emit light.</p>
+
+<p>If a texture map is assigned, the full colour values of the texture are used for the emission colour and brightness. The emission value numeric field remains, which you can use as a multiplier to boost or reduce the overall emission level of your material.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderEmissiveMaterialInspector.png" alt="Shown in the inspector, Left: An emission map for a computer terminal. It has two glowing screens and glowing keys on a keyboard. Right: The emissive material using the emission map. The material has both emissive and non-emissive areas.">
+<figcaption>Shown in the inspector, Left: An emission map for a computer terminal. It has two glowing screens and glowing keys on a keyboard. Right: The emissive material using the emission map. The material has both emissive and non-emissive areas.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderEmissiveInLightAndShadow.png" alt="In this image, there are areas of high and low levels of light, and shadows falling across the emissive areas which gives a full representation of how emissive materials look under varying light conditions.">
+<figcaption>In this image, there are areas of high and low levels of light, and shadows falling across the emissive areas which gives a full representation of how emissive materials look under varying light conditions.</figcaption>
+</figure>
+
+<p>As well as the emission colour and brightness, the Emission parameter has a Global Illumination setting, allowing you to specify how the apparent light emitted from this material will affect the contextual lighting of other nearby objects. There are three options</p>
+
+<ul>
+<li><p>
+<strong>None</strong> - The object will appear emissive, but the lighting of nearby objects will not be affected. </p></li>
+<li><p>
+<strong>Realtime</strong> - The emissive light from this material will be added to the realtime global illumination calculations for the scene, so the lighting of nearby objects, even moving objects, will be affected by the emitted light.</p></li>
+<li><p>
+<strong>Baked</strong> - The emissive light from this material will be baked into the static lightmaps for the scene, so other nearby static objects will appear to be lit by this material, but dynamic objects will not be affected.</p></li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/StandardShaderEmissiveBakedEffect.png" alt="Baked emissive values from the computer terminals emission map light up the surrounding areas in this dark scene">
+<figcaption>Baked emissive values from the computer terminal’s emission map light up the surrounding areas in this dark scene</figcaption>
+</figure>
+
+<hr>
+
+<h3>Detail Maps</h3>
+
+<p>Detail maps allow you to overlay a second set of textures on top of the main textures listed above. You can apply a second Albedo colour map, and a second Normal map. Typically, these would be mapped on a much smaller scale repeated many times across the object’s surface, compared with the main Albedo and Detail maps.</p>
+
+<p>The reason for this is to allow the material to have sharp detail when viewed up close, while also having a normal level of detail when viewed from further away, without having to use a single extremely high texture map to achieve both goals.</p>
+
+<p>Typical uses for detail textures would be:
+- Adding skin detail, such as pores and hairs, to a character’s skin
+- Adding tiny cracks and lichen growth to a brick wall
+- adding small scratches and scuffs to a large metal container</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderDetailNotAppliedYet.png" alt="This character has a skin texture map, but no detail texture yet. We will add skin pores as a detail texture.">
+<figcaption>This character has a skin texture map, but no detail texture yet. We will add skin pores as a detail texture.</figcaption>
+</figure>
+
+<p>
+<img src="../uploads/Main/StandardShaderDetailSkin.png" alt="The Albedo skin pore detail texture"> <img src="../uploads/Main/StandardShaderDetailSkinNormal.png" alt="The normal map for the skin pore detail">
+</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderDetailApplied.png" alt="The end result, the character now has subtle skin pore detail across her skin, at a much higher resolution than the base Albedo or Normal map layer would have allowed.">
+<figcaption>The end result, the character now has subtle skin pore detail across her skin, at a much higher resolution than the base Albedo or Normal map layer would have allowed.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/StandardShaderDetailDifferentContext.png" alt="Detail textures can have a subtle but striking effect on the way light hits a surface. This is the same character in a different lighting context.">
+<figcaption>Detail textures can have a subtle but striking effect on the way light hits a surface. This is the same character in a different lighting context.</figcaption>
+</figure>
+
+<p>If you use a single normal map do ALWAYS plug it into the primary channel. The Secondary normal map channel is more expensive than the primary one but has the exact same effect.</p>
+
+<h3>Detail Mask</h3>
+
+<p>The detail mask texture allows you to mask off certain areas of your model to have the detail texture applied. This means you can show the detail texture in certain areas, and hide it in others. In the example of the skin pores above, you might want to create a mask so the pores are not shown on the lips or eyebrows.</p>
+
+<hr>
+
+<h2>Fresnel</h2>
+
+<p>One important visual cue of objects in the real world has to do with how they become more reflective at grazing angles (illustrated below). This is called the Fresnel effect.</p>
+
+<figure>
+<img src="../uploads/Main/StandardShaderFresnelGraduationTable.png" alt="The fresnel effect visible at grazing angles in relation to the viewer is increasingly apparent as the surface of a material becomes smoother">
+<figcaption>The fresnel effect visible at grazing angles in relation to the viewer is increasingly apparent as the surface of a material becomes smoother</figcaption>
+</figure>
+
+<p>There are two things to note in this example; firstly, these reflections only appear around the edges of the sphere (that’s when its surface is at a grazing angle), and also that they become more visible and sharper as the smoothness of the material goes up.</p>
+
+<p>In the Standard shader there is no direct control over the Fresnel effect. Instead it is indirectly controlled through the smoothness of the material. Smooth surfaces will present a stronger Fresnel, totally rough surfaces will have no Fresnel.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="StandardShaderMetallicVsSpecular.html"></a></span><div class="tip">Metallic vs Specular Workflow</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="StandardShaderMaterialCharts.html"></a></span><div class="tip">Material charts</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2015 Unity Technologies</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Learn</a><a href="http://unity3d.com/community">Community</a><a href="http://unity3d.com/asset-store">Asset Store</a><a href="https://store.unity3d.com">Buy</a><a href="http://unity3d.com/unity/download">Download</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>

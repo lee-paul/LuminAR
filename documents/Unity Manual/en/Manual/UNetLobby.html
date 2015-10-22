@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Multiplayer Lobby</title>
+<meta name="description" content="Develop once, publish everywhere! Unity is the ultimate tool for video game development, architectural visualizations, and interactive media installations - publish to the web, Windows, OS X, Wii, Xbox 360, and iPhone with many more platforms to come.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1439907317"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1439907317"></script><script type="text/javascript" src="docdata/toc.js?ts=1439907317"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1439907317"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1439907317">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content"><div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetLobby.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetLobby.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetLobby.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetLobby.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetLobby.html">Русский</a></li>
+</ul></div>
+</div></div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManualRestructured.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li>Multiplayer Lobby</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetConverting.html"></a></span><div class="tip">Converting a Single Player Game to Multiplayer</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetClientServer.html"></a></span><div class="tip">Network Clients and Servers</div>
+</div>
+</div></div>
+<h1>Multiplayer Lobby</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Many multiplayer games have a staging area for players to join before playing the actual game. In this area - often called the “lobby”, players may be able to pick options and be able to set themselves as ready for the game to start.</p>
+
+<p>The NetworkLobbyManager is a specialized NetworkManager that provides a lobby for Unity Multiplayer games. It includes:</p>
+
+<ul>
+<li>Limit on number of players that can join</li>
+<li>Support for multiple players per client with a limit on number of players per client</li>
+<li>Prevent players from joining game in-progress</li>
+<li>Per-player ready state, so that game starts when all players are ready</li>
+<li>Per-player configuration data</li>
+<li>Re-joining the lobby when the game is finished</li>
+<li>Virtual functions that allow custom logic for lobby events</li>
+</ul>
+
+<p>The GuiLobbyManager is a special lobby manager that provides a user-interface for the lobby. It is available as an asset package and can be imported into Unity projects to easily add a lobby to multiplayer games. The scripts and UI prefabs in the package can be customized to make the look and feel of the lobby unique for any game.</p>
+
+<h2>Lobby Player Objects</h2>
+
+<p>There are two kinds of player objects - each which has a prefab slot in the NetworkLobbyManager:</p>
+
+<p>LobbyPlayer Object</p>
+
+<ul>
+<li>One for each player</li>
+<li>Created when client connects, or player is added</li>
+<li>Exists until client disconnects</li>
+<li>Holds the ready flag for this player for the lobby</li>
+<li>Handles commands while in the lobby</li>
+<li>Add user scripts to this prefab to hold game-specific player data</li>
+</ul>
+
+<p>GamePlayer Object</p>
+
+<ul>
+<li>One for each player</li>
+<li>Created when game scene is started</li>
+<li>Destroyed when re-entering lobby</li>
+<li>Handles commands while in the game</li>
+</ul>
+
+<p>The NetworkLobbyPlayer component is used for LobbyPlayer objects. It supplies some virtual function callbacks that can be used for custom lobby behaviour</p>
+
+<pre><code>    public virtual void OnClientEnterLobby()
+    {
+    }
+
+    public virtual void OnClientExitLobby()
+    {
+    }
+
+    public virtual void OnClientReady(bool readyState)
+    {
+    }
+</code></pre>
+
+<h2>Adding the Lobby to a Game</h2>
+
+<p>Process for adding a NetworkLobby to a multiplayer game (without using the multiplayer-lobby asset package):</p>
+
+<ul>
+<li>Create a new lobby scene</li>
+<li>Add the scene to the build settings, as the first scene</li>
+<li>Create a new game object in the new scene, rename it to LobbyManager</li>
+<li>Add the NetworkLobbyManager component to the LobbyManager object</li>
+<li>Add the NetworkManagerHUD component to the LobbyManager object</li>
+<li>Open the inspector for the NetworkLobbyManager component</li>
+<li>Set the LobbyScene to the current scene</li>
+<li>Set the PlayScene to the main game-play scene for the game</li>
+<li>Create a new gameObject and rename it to LobbyPlayer</li>
+<li>Add the NetworkLobbyPlayer component to the LobbyPlayer</li>
+<li>Create a prefab for the LobbyPlayer and delete the instance from the scene</li>
+<li>Set the LobbyPlayerPrefab slot to the LobbyPlayer prefab</li>
+<li>Set the GamePlayerPrefab slot to the prefab for the player in the main game</li>
+<li>Save the scene.</li>
+<li>Run the game</li>
+</ul>
+
+<p>This version of the NetworkLobbyManager uses the OnGUI user interface like the NetworkManagerHUD. For a better user interface use the multiplayer-lobby asset package.</p>
+
+<p>The NetworkLobbyManager has many virtual function callbacks that can be used for custom lobby behaviour. Most important is OnLobbyServerSceneLoadedForPlayer which is called on the server for each player as they transition from the lobby to the main game. This is the ideal place to apply settings from the lobby to the player’s game-play object.</p>
+
+<pre><code>    // for users to apply settings from their lobby player object to their in-game player object
+    public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer)
+    {
+        var cc = lobbyPlayer.GetComponent&lt;ColorControl&gt;();
+        var player = gamePlayer.GetComponent&lt;Player&gt;();
+        player.myColor = cc.myColor;
+        return true;
+    }
+</code></pre>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetConverting.html"></a></span><div class="tip">Converting a Single Player Game to Multiplayer</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetClientServer.html"></a></span><div class="tip">Network Clients and Servers</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2015 Unity Technologies</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Learn</a><a href="http://unity3d.com/community">Community</a><a href="http://unity3d.com/asset-store">Asset Store</a><a href="https://store.unity3d.com">Buy</a><a href="http://unity3d.com/unity/download">Download</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>
