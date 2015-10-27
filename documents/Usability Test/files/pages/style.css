@@ -1,0 +1,207 @@
+body {
+    font-size: 16px;
+    background-color: #333333;
+    margin: 0;
+    padding: 5;
+	padding-bottom: 50px;
+}
+
+html {
+    margin: 0;
+    padding: 10;
+	height: 102%
+}
+
+img.logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+}
+
+img.centerimg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+figure figcaption {
+	text-align: center;
+	font-size: 12px;
+	padding-top: 8px;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	font-weight: 300;
+    padding-left:  15px;
+    padding-right: 15px;
+	font-size: 30px;
+}
+
+h2 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 28px;
+	font-weight: 300;
+	padding-top: 10px;
+	margin-bottom: -1px;
+}
+
+h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 22px;
+	font-weight: 300;
+	padding-top: 5px;
+	margin-bottom: -5px;
+}
+
+/* unvisited link */
+a.nav:link {
+    color: #666666;
+	text-decoration: none;
+}
+
+/* visited link */
+a.nav:visited {
+	color: #666666;
+	text-decoration: none;
+}
+
+a.nav.current {
+  color: #0379e5;
+}
+
+a.nav:hover {
+    color: #0379e5;
+}
+
+/* selected link */
+a.nav:active {
+    color: #0379e5;
+}
+
+a.doc:link {
+	color: #0379e5;
+	
+	font-size: 15px;
+}
+
+a.doc:visited {
+	color: #0379e5;
+	
+	font-size: 15px;
+}
+
+div {
+	font-family: 'Open Sans', sans-serif;
+	color: #666666;
+	background-color: #ffffff;
+    line-height: 20px;
+    padding-left:  15px;
+    padding-right: 15px;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	color: #666666;
+	background-color: #ffffff;
+	font-size: 15px;
+	line-height: 1.6;
+	padding-bottom: 10px;
+}
+
+a {
+	font-size: 17px;
+}
+
+td {
+	vertical-align: top;
+}
+
+ul {
+	font-family: 'Open Sans', sans-serif;
+	color: #666666;
+	background-color: #ffffff;
+	font-size: 15px;
+	line-height: 1.4;
+	margin-top:-18px;
+	margin-bottom:-10px;
+}
+
+li{ 
+	padding-bottom: 7px;
+}
+
+#pagebody {
+	width: 780px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 18px;
+	padding-bottom: 60px;
+}
+
+#content {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
+#quote {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#menu {
+	padding: 2px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#banner {
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#targetDiv {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+hr {
+	width: 780px;
+	color: #666666;
+	background-color: #666666;
+}
+
+#subtitle {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 16px;
+	padding-bottom: 20px;
+	font-weight:300;
+}
+
+table, th, td{
+	font-size: x-large;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+p label {
+    display: inline-block;
+    width: 200px;
+}
+p input {
+    width: 200px;
+}
