@@ -11,14 +11,21 @@ namespace LuminAR.Project{
 
 		[Header("File Save destination")]
 		// This can be used to download the file elsewhere.
-		public string fileLocation; //Application.dataPath
+		public string fileLocation; /**< String which holds the path of where to save the downloaded database, Can be set in the Unity Inspector */
 
 		[Header("Sever to download db from")]
-		public string url = "http://www.nzwheelsonline.com/AHCI/gpsnodes.sqlite";
+		public string url = "http://www.nzwheelsonline.com/AHCI/gpsnodes.sqlite"; /**< String that holds the URL address which specifies where to download the database file from, Can be set in the Unity Inspector */
 
 		WWW www;
 
-		IEnumerator Start(){
+		public IEnumerator Start(){ 
+		/**
+		* The function that starts the download of the database.
+		* fileLocation The location path of where to save the downloaded database.
+		* url The URL of where to download the database from.
+		* www The WWW class used to retieve content from URLs.
+		* @see DatabaseConnect.cs
+		**/
 			www = new WWW (url);
 
 			while (!www.isDone) {
