@@ -52,10 +52,17 @@ public class GPSManager : MonoBehaviour {
 		}
 		//Debug.Log("Compasses are " + xValue.ToString() + "," + yValue.ToString() + "," + zValue.ToString());
 		setText = GameObject.Find("user_bearing").GetComponent<GUIText>();
-		setText.text = "" + degrees;
+		setText.text = "" + degrees + " degrees";
 	
 	}
 
 
 #endif
+	public string getUserLocation(){
+		return userLocation;
+	}
+	
+	public void setUserLocation(string location){
+		userLocation = location;
+	}
 }

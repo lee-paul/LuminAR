@@ -39,6 +39,7 @@ namespace LuminAR.Project{
 		static string distanceArray = "";
 
 		DatabaseDownload dbDownload;
+		Boolean dbConnection = false;
 
 		// Open the database for access
 		public void openDB () {
@@ -50,15 +51,18 @@ namespace LuminAR.Project{
 			string conn = "URI=file:" + Application.persistentDataPath + "/" + dbName; //Path to database.
 
 			dbconn = (IDbConnection)new SqliteConnection (conn);
+			dbConnection = true;
 			dbconn.Open (); //Open connection to the database.
 			Debug.Log("Connection Success!");
-			
+
+			#if !UNITY_EDITOR
 			//Make a connection to the Java (.jar) file that is created.
 			AndroidJNI.AttachCurrentThread();
 			gpsActivityJavaClass = new AndroidJavaClass("com.LuminAR.Project.GPSLocation"); //The path to the .jar file
 			
 			if (dbconn != null && dbconn.State == ConnectionState.Open) {
-				
+
+
 				dbcmd = dbconn.CreateCommand ();
 				string sqlQuery = "SELECT * FROM " + tableName;
 				dbcmd.CommandText = sqlQuery;
@@ -77,8 +81,9 @@ namespace LuminAR.Project{
 			} else {
 				Debug.Log ("Error - Could not connect to Database!");
 			}
-		
+			#endif		
 		}
+
 		// Called to insert in to the database
 		public void insertToDB (float gps_lat, float gps_long, string gps_desc) {
 			//Check if the database is open
@@ -114,6 +119,20 @@ namespace LuminAR.Project{
 				setText = GameObject.Find ("gps_locations").GetComponent<GUIText>();
 				setText.text = (distanceArray);
 				Debug.Log("Retrieved the distances");
+			} else {
+				Debug.Log ("Error - Could not connect to Database! - Trying to connect...");
+			}
+			/**
+			* A function which retrieves the nodes from the database and runs a function to get the distance the user is away from the nodes in the database.
+			**/
+		}
+
+		public void setMax(float distance){
+			//Check if the database is open
+			if (dbconn != null && dbconn.State == ConnectionState.Open) {
+				
+				maxDistance = distance;
+				Debug.Log("The max distance is now " + maxDistance);
 			} else {
 				Debug.Log ("Error - Could not connect to Database! - Trying to connect...");
 			}
