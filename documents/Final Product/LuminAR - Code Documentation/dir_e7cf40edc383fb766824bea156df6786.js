@@ -1,4 +1,0 @@
-var dir_e7cf40edc383fb766824bea156df6786 =
-[
-    [ "LuminAR", "dir_83916b8a6f8c587521e7d433f7600931.html", "dir_83916b8a6f8c587521e7d433f7600931" ]
-];

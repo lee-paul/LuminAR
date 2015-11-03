@@ -3,6 +3,8 @@ var classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location =
     [ "createLocation", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#aead49631012517461c4a732825717de3", null ],
     [ "deleteLocation", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#ab26b775ef81af62bc7e8d1e8161b0d03", null ],
     [ "editLocation", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#a70b26b86f5b62057006ad8855e861445", null ],
+    [ "getAllNodes", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#a16d46d307a2386d7cd24d7c585860319", null ],
+    [ "getBearing", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#a9641f16bd2b45167aa67e8a30335dd34", null ],
     [ "getDegrees", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#a96741530d46c4b97c2cdc741c0ed58f5", null ],
     [ "getDistanceTo", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#a82d69bd148980bb4b1a44f6ecc55f286", null ],
     [ "getLocation", "classcom_1_1_lumin_a_r_1_1_project_1_1_g_p_s_location.html#ac54b608145cc9dd8a7311cbef757823c", null ],

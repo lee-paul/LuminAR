@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hidden',['hidden',['../class_lumin_a_r_1_1_project_1_1_database_functions.html#a05dff862e2a2424388f59bd7c9320ba6',1,'LuminAR::Project::DatabaseFunctions']]]
+  ['hidden',['hidden',['../class_my_log.html#a64845691f6b1b5e8bfe34a794f376a72',1,'MyLog']]]
 ];

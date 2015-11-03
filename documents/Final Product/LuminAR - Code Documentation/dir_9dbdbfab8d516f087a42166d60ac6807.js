@@ -1,6 +1,6 @@
-var dir_1c0a11c9b258b446a04e116cb8faa990 =
+var dir_9dbdbfab8d516f087a42166d60ac6807 =
 [
-    [ "android", "dir_fbad0b67197010ac820d4d93674f19ab.html", "dir_fbad0b67197010ac820d4d93674f19ab" ],
+    [ "android", "dir_94c8bc2220cd8fd83baf21920e805c76.html", "dir_94c8bc2220cd8fd83baf21920e805c76" ],
     [ "DatabaseConnect.cs", "_database_connect_8cs.html", [
       [ "DatabaseConnect", "class_lumin_a_r_1_1_project_1_1_database_connect.html", "class_lumin_a_r_1_1_project_1_1_database_connect" ]
     ] ],
@@ -12,5 +12,8 @@ var dir_1c0a11c9b258b446a04e116cb8faa990 =
     ] ],
     [ "GPSManager.cs", "_g_p_s_manager_8cs.html", [
       [ "GPSManager", "class_g_p_s_manager.html", "class_g_p_s_manager" ]
+    ] ],
+    [ "MyLog.cs", "_my_log_8cs.html", [
+      [ "MyLog", "class_my_log.html", "class_my_log" ]
     ] ]
 ];
