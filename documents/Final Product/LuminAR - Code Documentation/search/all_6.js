@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['hidden',['hidden',['../class_lumin_a_r_1_1_project_1_1_database_functions.html#a05dff862e2a2424388f59bd7c9320ba6',1,'LuminAR::Project::DatabaseFunctions']]],
-  ['hide',['hide',['../class_lumin_a_r_1_1_project_1_1_database_functions.html#a288c897dec496960b7ece2eda9d9881e',1,'LuminAR::Project::DatabaseFunctions']]]
+  ['handlelog',['HandleLog',['../class_my_log.html#a382ad0320fc6211ecf979c53103a1455',1,'MyLog']]],
+  ['hidden',['hidden',['../class_my_log.html#a64845691f6b1b5e8bfe34a794f376a72',1,'MyLog']]],
+  ['hide',['hide',['../class_my_log.html#a1a44a850a6799952e3c896ec11735df8',1,'MyLog']]]
 ];

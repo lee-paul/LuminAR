@@ -1,6 +1,7 @@
 var class_g_p_s_manager =
 [
-    [ "OnGUI", "class_g_p_s_manager.html#a6900dee86095c191592dcc7230f2c4a1", null ],
+    [ "getUserLocation", "class_g_p_s_manager.html#a489bba7c8ba9e086b87d19cd8d270cd9", null ],
+    [ "setUserLocation", "class_g_p_s_manager.html#afc0600fb098acf4931703a8b0e2993b1", null ],
     [ "Start", "class_g_p_s_manager.html#abab89e654ad5fb8385d2497e27a6a96b", null ],
     [ "Update", "class_g_p_s_manager.html#a743dea1d8b44136547afcad857c6d00e", null ],
     [ "degrees", "class_g_p_s_manager.html#aacf85f675cd3eb8d0f99d394f470bd00", null ],

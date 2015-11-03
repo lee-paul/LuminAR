@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "LuminARDocs", "index.html", [
+  [ "LuminAR Code Docs", "index.html", [
     [ "Packages", null, [
       [ "Packages", "namespaces.html", "namespaces" ]
     ] ],
