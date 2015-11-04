@@ -158,6 +158,15 @@
 		line-height: 170%;
 	}
 	
+	p.introtext{
+		font-family: 'Open Sans', sans-serif;
+		font-size: 14px;
+		margin-left: 50px;
+		margin-right: 50px;
+		line-height: 170%;
+		margin-bottom: 30px;
+	}
+	
 	p.bottomtext{
 		font-family: 'Open Sans', sans-serif;
 		margin-top: -5px;
